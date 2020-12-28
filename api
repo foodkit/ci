@@ -1,0 +1,7 @@
+FROM circleci/php:7.4-cli-browsers
+
+RUN sudo apt-get update -y
+RUN sudo apt-get install -y libpng-dev zlib1g-dev libxml2-dev libpq-dev libonig-dev
+RUN sudo apt install -y postgresql-client || true
+RUN sudo -E docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
+RUN sudo -E docker-php-ext-install pgsql pdo pdo_pgsql gd json mbstring iconv simplexml soap
