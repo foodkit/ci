@@ -1,11 +1,8 @@
-FROM circleci/php:7.4-cli-browsers
+FROM cimg/php:8.1.2-node
 
 RUN sudo apt-get update -y
 RUN sudo apt-get install -y libpng-dev zlib1g-dev libxml2-dev libpq-dev libonig-dev
 RUN sudo apt install -y postgresql-client || true
-RUN sudo -E docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
-RUN sudo -E docker-php-ext-install pgsql pdo pdo_pgsql gd json mbstring iconv simplexml soap
 
 # Download and install php-redis
-RUN sudo pecl install -f redis && \
-  sudo docker-php-ext-enable redis
+RUN sudo apt-get install -y php-simplexml php-ftp php-redis
