@@ -12,8 +12,8 @@ docker build -f api .
 
 ```
 # Tag the image created in the `build` step
-docker tag <hash> foodkit/php-ci:8.1
+docker tag <hash> foodkit/php-ci:8.2
 
 # Push to Docker Hub
-docker image push foodkit/php-ci:8.1
+docker image push foodkit/php-ci:8.2
 ```
